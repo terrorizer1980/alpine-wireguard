@@ -4,7 +4,7 @@ FROM alpine:${ALPINE_VERSION}
 RUN apk add --no-cache \
     iproute2 \
     wireguard-tools
-COPY . /
-VOLUME /secret
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT [ "wg-quick", "up" ]
+CMD [ "wg0" ]
+
 
